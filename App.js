@@ -10,6 +10,7 @@ const PlaceHolderImage = require('./assets/images/starry-night.png')
 export default function App() {
 
   const [selectedImage, setImage] = useState(null)
+  const [showAppOptions, setShowAppOptions] = useState(false)
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -19,10 +20,13 @@ export default function App() {
 
     if(!result.canceled) {
       setImage(result.assets[0].uri)
+      setShowAppOptions(true)
     } else {
       console.log('You did not choose a image.')
     }
   }
+
+  // The conditional for is when we choose a photo a modal will pop up with options
 
   return (
     <View style={styles.container}>
@@ -30,10 +34,15 @@ export default function App() {
         <ImageView placeHolderImage={PlaceHolderImage} selectedImage={selectedImage}/>
       </View>
 
-      <View style={styles.footContainer}>
-        <Button theme='primary' label='Choose a photo' onPress={pickImageAsync}/>
-        <Button label='Use this photo'/>
-      </View>
+      {showAppOptions ? (
+        <View />
+      ) : (
+        <View style={styles.footContainer}>
+          <Button theme='primary' label='Choose a photo' onPress={pickImageAsync}/>
+          <Button label='Use this photo' onPress={() => setShowAppOptions(true)}/>
+        </View>
+      )}
+
       <StatusBar style="auto" />
     </View>
   );
