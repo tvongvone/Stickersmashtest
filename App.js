@@ -30,13 +30,13 @@ export default function App() {
     setShowAppOptions(false)
   }
 
-  const onAddSticker = () => {
-    // We will implement this sticker later
-  }
+  // const onAddSticker = () => {
+  //   // We will implement this sticker later
+  // }
 
-  const onSaveImageAsync = async () => {
-    // We will implement this later
-  }
+  // const onSaveImageAsync = async () => {
+  //   // We will implement this later
+  // }
 
   // The conditional for is when we choose a photo a modal will pop up with options
 
