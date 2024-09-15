@@ -9,8 +9,11 @@ const PlaceHolderImage = require('./assets/images/starry-night.png')
 
 export default function App() {
 
+
   const [selectedImage, setImage] = useState(null)
   const [showAppOptions, setShowAppOptions] = useState(false)
+
+
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -35,10 +38,20 @@ export default function App() {
   }
 
   const onSaveImageAsync = async () => {
-    // We will implement this later
-  }
+    try {
+      const localUri = await captureRef(imageRef, {
+        height: 440,
+        quality: 1,
+      });
 
-  // The conditional for is when we choose a photo a modal will pop up with options
+      await MediaLibrary.saveToLibraryAsync(localUri);
+      if (localUri) {
+        alert("Saved!");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <View style={styles.container}>
