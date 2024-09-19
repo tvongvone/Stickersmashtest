@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Platform } from 'react-native';
 import ImageView from './components/ImageView';
 import Button from './components/Button';
 import * as ImagePicker from 'expo-image-picker'
 import { useState } from 'react';
+import domtoimage from 'dom-to-image';
+
+
 
 const PlaceHolderImage = require('./assets/images/starry-night.png')
 
