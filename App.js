@@ -87,10 +87,6 @@ export default function App() {
             <IconButton icon="save-alt" label="Save" onPress={onSaveImageAsync} />
           </View>
           <View>
-      <View style={styles.imageContainer}>
-        <ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
-        {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
-      </View>
       {/* ...rest of the code remains same */}
     </View>
         </View>
