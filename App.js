@@ -11,6 +11,13 @@ import domtoimage from 'dom-to-image';
 const PlaceHolderImage = require('./assets/images/starry-night.png')
 
 export default function App() {
+  const [status, requestPermission] = MediaLibrary.usePermissions();
+  // ...rest of the code remains same
+
+  if (status === null) {
+    requestPermission();
+  }
+
 
 
   const [selectedImage, setImage] = useState(null)
