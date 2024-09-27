@@ -95,13 +95,18 @@ export default function App() {
           </View>
           <View>
       {/* ...rest of the code remains same */}
-    </View>
+          </View>
         </View>
       ) : (
-        <View style={styles.footContainer}>
-          <Button theme='primary' label='Choose a photo' onPress={pickImageAsync}/>
-          <Button label='Use this photo' onPress={() => setShowAppOptions(true)}/>
+        <GestureHandlerRootView style={styles.container}>
+      <View style={styles.imageContainer}>
+        <View ref={imageRef} collapsable={false}>
+          <ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
+          {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
         </View>
+      </View>
+      {/* ...rest of the code remains same */}
+    </GestureHandlerRootView>
       )}
 
       <StatusBar style="auto" />
