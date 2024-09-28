@@ -19,9 +19,10 @@ export default function App() {
   }
 
 
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedImage, setImage] = useState(null)
   const [showAppOptions, setShowAppOptions] = useState(false)
+  const [pickedEmoji, setPickedEmoji] = useState(null);
 
 
 
@@ -44,6 +45,7 @@ export default function App() {
   }
 
   const onAddSticker = () => {
+    setIsModalVisible(true);
     // We will implement this sticker later
   }
 
