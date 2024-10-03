@@ -17,7 +17,6 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
   });
 
 
-
   return (
     <View style={{ top: -350 }}>
       <Image
