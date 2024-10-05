@@ -4,7 +4,8 @@ import { useState, useRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
-/* @tutinfo Import <CODE>domtoimage</CODE> library. */import domtoimage from 'dom-to-image';
+/* @tutinfo Import <CODE>domtoimage</CODE> library. */
+import domtoimage from 'dom-to-image';
 
 import Button from '../../components/Button';
 import ImageViewer from '../../components/ImageView';
