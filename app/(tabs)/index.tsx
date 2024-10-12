@@ -7,7 +7,7 @@ import { captureRef } from 'react-native-view-shot';
 /* @tutinfo Import <CODE>domtoimage</CODE> library. */import domtoimage from 'dom-to-image';
 
 import Button from '../../components/Button';
-import ImageViewer from '../../components/ImageViewer';
+import ImageViewer from '../../components/ImageView';
 import IconButton from '../../components/IconButton';
 import CircleButton from '../../components/CircleButton';
 import EmojiPicker from '../../components/EmojiPicker';
