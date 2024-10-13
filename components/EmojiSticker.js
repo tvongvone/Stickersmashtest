@@ -16,6 +16,25 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
     };
   });
 
+  const drag = Gesture.Pan().onChange(event => {
+    translateX.value += event.changeX;
+    translateY.value += event.changeY;
+  });
+
+  const containerStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX: translateX.value,
+        },
+        {
+          translateY: translateY.value,
+        },
+      ],
+    };
+  });
+
+
 
   return (
     <View style={{ top: -350 }}>
