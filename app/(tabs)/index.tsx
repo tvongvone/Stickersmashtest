@@ -1,9 +1,10 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
+import React from 'react'
 
 import Button from '../../components/Button';
 import ImageViewer from '../../components/ImageView';
