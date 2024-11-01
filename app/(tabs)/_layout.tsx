@@ -28,9 +28,9 @@ export default function Index() {
   return (
     <>
       <GestureHandlerRootView style={styles.container}>
-        {/* ...rest of the code remains same */}
+
       </GestureHandlerRootView>
-      /* @tutinfo Mount the <CODE>StatusBar</CODE> component and set the <CODE>style</CODE> prop to <CODE>light</CODE>. */
+
       <StatusBar style="light" />
     </>
   );
