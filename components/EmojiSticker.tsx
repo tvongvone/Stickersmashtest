@@ -46,7 +46,7 @@ export default function EmojiSticker({ imageSize, stickerSource }: Props) {
   });
 
   return (
-    @tutinfo Wrap all components inside GestureDetector <GestureDetector gesture={drag}>
+    @tutinfo GestureDetector <GestureDetector gesture={drag}>
       <Animated.View style={/* @tutinfo Add containerStyle to the AnimatedView style prop. */[containerStyle, { top: -350 }]}>
         <GestureDetector gesture={doubleTap}>
           <Animated.Image
