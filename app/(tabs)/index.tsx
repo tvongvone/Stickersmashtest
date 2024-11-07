@@ -1,10 +1,11 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, /* @tutinfo */Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
-import { captureRef } from 'react-native-view-shot';
 import { type ImageSource } from "expo-image";
+import { captureRef } from 'react-native-view-shot';
+/* @tutinfo Import <CODE>domtoimage</CODE> library. */import domtoimage from 'dom-to-image';
 
 import Button from '@/components/Button';
 import ImageViewer from '@/components/ImageViewer';
@@ -55,20 +56,38 @@ export default function Index() {
     setIsModalVisible(false);
   };
 
-  /* @tutinfo Replace the comment with the code to capture the screenshot and save the image. */
   const onSaveImageAsync = async () => {
-    try {
-      const localUri = await captureRef(imageRef, {
-        height: 440,
-        quality: 1,
-      });
+    /* @tutinfo Add the if condition here to check whether the current platform is web or not. */
+    if (Platform.OS !== 'web') {
+      try {
+        const localUri = await captureRef(imageRef, {
+          height: 440,
+          quality: 1,
+        });
 
-      await MediaLibrary.saveToLibraryAsync(localUri);
-      if (localUri) {
-        alert('Saved!');
+        await MediaLibrary.saveToLibraryAsync(localUri);
+        if (localUri) {
+          alert('Saved!');
+        }
+      } catch (e) {
+        console.log(e);
       }
-    } catch (e) {
-      console.log(e);
+    /* @tutinfo Add an else condition to run the logic when the current platform is the web. */
+    } else {
+      try {
+        const dataUrl = await domtoimage.toJpeg(imageRef.current, {
+          quality: 0.95,
+          width: 320,
+          height: 440,
+        });
+
+        let link = document.createElement('a');
+        link.download = 'sticker-smash.jpeg';
+        link.href = dataUrl;
+        link.click();
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
