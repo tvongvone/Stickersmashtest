@@ -26,12 +26,12 @@ export default function Index() {
   // ...rest of the code remains same
 
   return (
-    <>
+    <View>
       <GestureHandlerRootView style={styles.container}>
 
       </GestureHandlerRootView>
 
       <StatusBar style="light" />
-    </>
+    </View>
   );
 }
