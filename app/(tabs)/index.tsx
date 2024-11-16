@@ -1,11 +1,11 @@
-import { View, StyleSheet, /* @tutinfo */Platform } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
 import { type ImageSource } from "expo-image";
 import { captureRef } from 'react-native-view-shot';
-/* @tutinfo Import <CODE>domtoimage</CODE> library. */import domtoimage from 'dom-to-image';
+import domtoimage from 'dom-to-image';
 
 import Button from '@/components/Button';
 import ImageViewer from '@/components/ImageViewer';
@@ -57,7 +57,6 @@ export default function Index() {
   };
 
   const onSaveImageAsync = async () => {
-    /* @tutinfo Add the if condition here to check whether the current platform is web or not. */
     if (Platform.OS !== 'web') {
       try {
         const localUri = await captureRef(imageRef, {
@@ -72,7 +71,6 @@ export default function Index() {
       } catch (e) {
         console.log(e);
       }
-    /* @tutinfo Add an else condition to run the logic when the current platform is the web. */
     } else {
       try {
         const dataUrl = await domtoimage.toJpeg(imageRef.current, {
