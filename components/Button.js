@@ -15,11 +15,11 @@ export default function Button(props) {
     }
 
     return (
-        // <View style={styles.buttonContainer}>
-        //     <Pressable style={styles.button} onPress={props.onPress}>
-        //         <Text style={styles.label}>{props.label}</Text>
-        //     </Pressable>
-        // </View>
+        <View style={styles.buttonContainer}>
+            <Pressable style={styles.button} onPress={props.onPress}>
+                <Text style={styles.label}>{props.label}</Text>
+            </Pressable>
+        </View>
     )
 }
 
